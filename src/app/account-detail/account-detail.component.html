@@ -4,7 +4,7 @@
     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
   </div>
   <div class="button-row">
-    <a mat-flat-button color="primary" [routerLink]="['/account']"><mat-icon>list</mat-icon></a>
+    <a mat-flat-button color="accent" [routerLink]="['/account']"><mat-icon>list</mat-icon></a>
   </div>
   <mat-card class="example-card">
     <mat-card-header>
@@ -20,7 +20,7 @@
       </dl>
     </mat-card-content>
     <mat-card-actions>
-      <a mat-flat-button color="primary" [routerLink]="['/account-edit', account._id]"><mat-icon>edit</mat-icon></a>
+      <a mat-flat-button color="accent" [routerLink]="['/account-edit', account._id]"><mat-icon>edit</mat-icon></a>
       <a mat-flat-button color="warn" (click)="deleteAccount(account.id)"><mat-icon>delete</mat-icon></a>
     </mat-card-actions>
   </mat-card>

@@ -4,13 +4,13 @@
     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
   </div>
   <div class="button-row">
-    <a mat-flat-button color="primary" [routerLink]="['/account']"><mat-icon>list</mat-icon></a>
+    <a mat-flat-button color="accent" [routerLink]="['/account']"><mat-icon>list</mat-icon></a>
   </div>
   <mat-card class="example-card">
-    <form [formGroup]="accountForm" (ngSubmit)="onFormSubmit(accountForm.value)">
+    <form [formGroup]="accountForm" (ngSubmit)="onFormSubmit(accountForm)">
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Id" formControlName="id"
-               [errorStateMatcher]="matcher" value="{{currentId}}" disabled>
+               [errorStateMatcher]="matcher">
         <mat-error>
           <span *ngIf="!accountForm.get('id').valid && accountForm.get('id').touched">Please enter Account Id</span>
         </mat-error>
@@ -23,7 +23,7 @@
         </mat-error>
       </mat-form-field>
       <div class="button-row">
-        <button type="submit" [disabled]="!accountForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+        <button type="submit" [disabled]="!accountForm.valid" mat-flat-button color="accent"><mat-icon>save</mat-icon></button>
       </div>
     </form>
   </mat-card>

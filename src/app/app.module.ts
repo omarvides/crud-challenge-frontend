@@ -20,6 +20,8 @@ import { AccountDetailComponent } from './account-detail/account-detail.componen
 import { AccountAddComponent } from './account-add/account-add.component';
 import { AccountEditComponent } from './account-edit/account-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
