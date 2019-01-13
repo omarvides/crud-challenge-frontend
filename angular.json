@@ -79,6 +79,12 @@
           "configurations": {
             "production": {
               "browserTarget": "crud-challenge-frontend:build:production"
+            },
+            "kubernetes": {
+              "browserTarget": "crud-challenge-frontend:build:kubernetes"
+            },
+            "kubernetes-staging": {
+              "browserTarget": "crud-challenge-frontend:build:kubernetes-staging"
             }
           }
         },
