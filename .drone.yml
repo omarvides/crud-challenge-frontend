@@ -1,0 +1,26 @@
+pipeline:
+  buid_web_app:
+    image: node:lts
+    commands:
+      - npm install
+      - npm install -g @angular/cli
+      - npm run-script build-k8s
+      - npm run-script build-k8s-staging
+  docker_publish:
+    image: plugins/docker:17.12
+    repo: omarvides/crud-challenge-ui
+    dockerfile: docker/Dockerfile
+    target: production
+    auto_tag: true
+    secrets: [ docker_username, docker_password ]
+    when:
+      event: [ tag ]
+  docker_publish_staging:
+    image: plugins/docker:17.12
+    repo: omarvides/crud-challenge-ui-staging
+    dockerfile: docker/Dockerfile
+    target: staging
+    auto_tag: true
+    secrets: [ docker_username, docker_password ]
+    when:
+      event: [ tag ]
