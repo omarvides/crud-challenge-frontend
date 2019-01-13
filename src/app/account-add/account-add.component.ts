@@ -10,9 +10,6 @@ import { v4 as uuid } from 'uuid';
   styleUrls: ['./account-add.component.css']
 })
 export class AccountAddComponent implements OnInit {
-  ngAfterViewInit() {
-
-  }
   accountForm: FormGroup;
   id:string='';
   email:string='';
@@ -22,21 +19,20 @@ export class AccountAddComponent implements OnInit {
   constructor(private router: Router, private api: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.generateNewUuid();
     this.accountForm = this.formBuilder.group({
-      'id' : [null, Validators.required],
-      'email' : [null, Validators.required]
+      id : new FormControl({value: uuid(), disabled: true}, Validators.required),
+      email : new FormControl({value: '', disabled: false}, Validators.required),
     });
+    this.generateNewUuid();
   }
 
   generateNewUuid() {
     this.currentId = uuid();
-    console.log(uuid())
   }
 
-  onFormSubmit(form:NgForm) {
+  onFormSubmit(form) {
     this.isLoadingResults = true;
-    this.api.addAccount(form)
+    this.api.addAccount(form.getRawValue())
       .subscribe(res => {
           let id = res['id'];
           this.isLoadingResults = false;

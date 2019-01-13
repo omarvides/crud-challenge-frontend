@@ -21,7 +21,7 @@ export class AccountEditComponent implements OnInit {
   ngOnInit() {
     this.getAccount(this.route.snapshot.params['id']);
     this.accountForm = this.formBuilder.group({
-      'id' : [null, Validators.required],
+      'id' : new FormControl({value: null, disabled: true}, Validators.required),
       'email' : [null, Validators.required]
     });
   }
