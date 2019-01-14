@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-k8s": "ng build --verbose --configuration=kubernetes",
-    "build-k8s-staging": "ng build --verbose --output-path staging/tracking-site --configuration=kubernetes-staging"
+    "build-k8s-staging": "ng build --verbose --output-path staging/crud-challenge-frontend --configuration=kubernetes-staging"
   },
   "private": true,
   "dependencies": {
