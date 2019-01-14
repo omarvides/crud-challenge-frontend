@@ -22,7 +22,10 @@ export class AccountEditComponent implements OnInit {
     this.getAccount(this.route.snapshot.params['id']);
     this.accountForm = this.formBuilder.group({
       'id' : new FormControl({value: null, disabled: true}, Validators.required),
-      'email' : [null, Validators.required]
+      'email' : [null, Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+\@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$')
+      ])]
     });
   }
 

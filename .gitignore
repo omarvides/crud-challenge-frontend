@@ -2,6 +2,7 @@
 
 # compiled output
 /dist
+/staging
 /tmp
 /out-tsc
 

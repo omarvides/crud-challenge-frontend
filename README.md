@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## To run this application pointing to different environments use:
+## To run this application from code to point to different environments use:
 
 **For production**
 ```
@@ -17,6 +17,23 @@ ng serve -c kubernetes
 ```
 ng serve -c kubernetes-staging
 ```
+
+## To run it from containers use
+
+**For production**
+```
+docker pull omarvides/crud-challenge-ui:1.0.5
+docker run -d -ti -p 80:80 omarvides/crud-challenge-ui:1.0.5
+
+```
+
+**For staging**
+```
+docker pull omarvides/crud-challenge-ui-staging:1.0.5
+docker run -d -ti -p 80:80 omarvides/crud-challenge-ui-staging:1.0.5
+```
+
+**After running one of the options above, visit http://localhost in your browser**
 
 ## Code scaffolding
 

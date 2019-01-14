@@ -21,7 +21,10 @@ export class AccountAddComponent implements OnInit {
   ngOnInit() {
     this.accountForm = this.formBuilder.group({
       id : new FormControl({value: uuid(), disabled: true}, Validators.required),
-      email : new FormControl({value: '', disabled: false}, Validators.required),
+      email : new FormControl({value: '', disabled: false}, Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+\@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$')
+      ])),
     });
     this.generateNewUuid();
   }
